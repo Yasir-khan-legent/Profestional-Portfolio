@@ -23,6 +23,7 @@
 
   <!-- Sidebar -->
   <div class="sidebar">
+    <div class="btnBox"><i class="fa-solid fa-bars"></i></div>
     <img src="media/pic___.jpg" alt="Profile" class="profile-img">
     <h2>Muhammad Yasir</h2>
     <div class="social-icons">
@@ -44,7 +45,7 @@
 
   <!-- Main Content -->
   <div class="main-content">
-    <div class="btnBox"><i class="fa-solid fa-bars"></i></div>
+    <!-- <div class="btnBox"><i class="fa-solid fa-bars"></i></div> -->
     <section class="hero" id="hero">
       <div class="hero-content">
         <p>HELLO, MY NAME IS</p>
@@ -347,25 +348,35 @@
   </div>
 
 
-<script>
-  let sideBar = document.querySelector(".sidebar")
-  let mainContent = document.querySelector(".main-content")
-  let btnBox = document.querySelector(".btnBox")
-  let isOpen = true
-  btnBox.addEventListener('click',() => {
-    if(isOpen){
-      sideBar.style.cssText = `width:0px;padding: 0px;`
-      mainContent.style.cssText = `margin-left: 0px;`
-      btnBox.innerHTML = '<i class="fa-solid fa-bars"></i>'
-      isOpen = false
-    }else{
-      sideBar.style.cssText = `width:250px;padding: 20px;`
-      mainContent.style.cssText = `margin-left: 250px;`
-      btnBox.innerHTML = '<i class="fa-solid fa-xmark"></i>'
-      isOpen = true
-    }
-  })
-</script>
+  <script>
+    let sideBar = document.querySelector(".sidebar")
+    let mainContent = document.querySelector(".main-content")
+    let btnBox = document.querySelector(".btnBox")
+    let isOpen = false
+    btnBox.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isOpen) {
+        sideBar.style.cssText = `left: -250px;`
+        btnBox.innerHTML = '<i class="fa-solid fa-bars"></i>'
+        mainContent.style.cssText = `filter: opacity(1);`
+        isOpen = false
+      } else {
+        sideBar.style.cssText = `left: 0;`
+        mainContent.style.cssText = `filter: opacity(.5);`
+        btnBox.innerHTML = '<i class="fa-solid fa-xmark"></i>'
+        isOpen = true
+      }
+    })
+    document.addEventListener('click', (e) => {
+      
+      if (isOpen && !sideBar.contains(e.target)) {
+        sideBar.style.cssText = `left: -250px;`
+        mainContent.style.cssText = `filter: opacity(1);`
+        btnBox.innerHTML = '<i class="fa-solid fa-bars"></i>'
+        isOpen = false
+      }
+    });
+  </script>
 </body>
 
 </html>
