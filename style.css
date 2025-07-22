@@ -580,14 +580,18 @@ body {
     padding: 10px;
   }
   .hero {
-    height: auto;
+    height: 50vh;
     flex-direction: column;
+    justify-content: center;
     text-align: center;
     font-size: 22px;
     padding: 20px;
   }
+  .hero p{
+    font-size: 20px;
+  }
   .aboutt {
-    width: 95%;
+    width: 90%;
   }
   .para {
     font-size: 16px;
@@ -626,11 +630,12 @@ body {
     margin-bottom: 10px;
   }
   .info-grid p {
+    text-align: center;
     margin: 8px 0;
   }
-  .info-grid p strong {
+  /* .info-grid p strong {
     display: block;
-  }
+  } */
   .info-grid {
     flex-direction: column;
     gap: 0px;
